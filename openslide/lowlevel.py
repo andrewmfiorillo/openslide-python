@@ -68,7 +68,7 @@ except ImportError:
         # big-endian RGBa to work around limitations in RGBa loader
         rawmode = (sys.byteorder == 'little') and 'BGRA' or 'ARGB'
         buf = PIL.Image.frombuffer('RGBA', size, buf, 'raw', rawmode, 0,
-                1).tostring()
+                1).tobytes()
         # Now load the image as RGBA, undoing premultiplication
         return PIL.Image.frombuffer('RGBA', size, buf, 'raw', 'RGBa', 0, 1)
 
